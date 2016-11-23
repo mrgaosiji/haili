@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>申请文件归档调度</title>
+   <link href="../res/share.css" type="text/css" rel="stylesheet" />
+		<script src="../../jquery-easyui-1.4.4/jquery.min.js" type="text/javascript"></script>
+		<script src="../jslib/jquery-easyui-1.4.4/jquery.easyui.min.js" type="text/javascript"></script>
+		<script src="../jslib/jquery-easyui-1.4.4/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+		<script src="../res/common.js" type="text/javascript"></script>
+</head>
+<body>
+
+<body class="easyui-layout">
+		<div region="center" border="false" style="padding: 10px;">
+			
+		<table id="datagrid" toolbar="#toolbar"></table>
+		
+		</div>
+
+		<div id="toolbar">
+			<table width="100%">
+				<tr>
+					<td align="left" valign="top">
+						<div>
+							<a href="#" class="easyui-linkbutton" iconCls="icon-view"
+								plain="true" onclick="javascript:view();">详细查看</a>
+						</div>
+					</td>
+					<td align="left" valign="top">
+					
+						
+							
+							<td align="left">
+							<form method="post" id="searchForm">
+							开始日期：<input readonly="readonly" class="easyui-datebox" name="applyDateBegin"> 
+							结束日期：<input readonly="readonly" class="easyui-datebox" name="applyDateEnd">
+							归档表:<input type="text" name="tableName" id="kk"> 
+							
+							<a href="#" class="easyui-linkbutton"
+							iconCls="icon-search" plain="false"
+							onclick="javascript:query()" >查询</a>
+							</form>
+							</td>
+							
+							<td align="right">
+							<a href="#" class="easyui-linkbutton"
+							iconCls="icon-excel" plain="false"
+							onclick="javascript:importapplyfile()">导入归档申请文件</a>
+							
+							<a href="#" class="easyui-linkbutton"
+							iconCls="icon-edit" plain="false"
+							onclick="javascript:executehandlefile()" >归档调度</a>
+						    </td>
+						
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		
+	<div style="display: none;">
+		<form id="importExcelForm" method="post" entype="multipart/form-data" target="uploadTarget">
+		   <div id="view-apply-file" title="选择归档文件导入" style="padding:30px;padding-left:20px;padding-right:20px;">
+		       <input type="file" name="choosedfile" id="choosedfile"/>
+		       
+		       <div id="t">
+		       <p>导入进度：</p>
+		       
+		       <div id="p"  class="easyui-progressbar" data-options="value:0" style="width:200px;"></div>
+		       
+		       </div>
+		   </div>
+		</form>
+	</div>
+		
+	
+		<div style="display: none;" id="dlg">
+			<table id="datagrid">
+			
+			</table>
+			
+		</div>
+	</body>
+</html>
+
+
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="meta">
+<meta name="description"
+	content="三方支付系统">
+	<meta http-equiv=”windows-Target“ content=”_top“>
+<title>三方支付管理系统</title>
+<link href="res/share.css" type="text/css" rel="stylesheet"/>
+<script src="jquery-easyui-1.4.4/jquery.min.js" type="text/javascript"></script>
+<script src="jquery-easyui-1.4.4/jquery.easyui.min.js" type="text/javascript"></script>
+<script src="jquery-easyui-1.4.4/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+<script src="res/common.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="res/index.js"></script>
+<style type="text/css">
+.rtitle {
+	overflow: hidden;
+	color: rgb(255, 255, 255);
+	background:url("res/images/bg_main_title.png") !important;
+}
+
+.rtitleText {
+    font-size: 18px;
+	font-weight: bold;
+	height: 36px; 
+	font-family: "Lucida Grande", Arial, Helvetica, sans-serif;
+	white-space: nowrap;
+	text-align: center;
+	text-shadow: 0pt 1px 0px rgba(255, 255, 255, 0.8);
+	line-height: 20px;
+}
+
+#modifyPwdForm{
+    text-shadow: 0pt 1px 0px rgba(255, 255, 255, 0.8);
+	color: rgb(0, 0, 0);
+	font-size: 12px;
+	font-weight: bold;
+}
+#modifyPwdForm input[type="text"],#modifyPwdForm input[type="password"]{
+   font-size: 12px;
+   width: 180px;
+   height: 16px;
+}
+
+</style>
+<script type="text/javascript">
+    var index_tabs;
+	var index_tabsMenu;
+	var index_layout;
+	$(function() {
+		
+		index_layout = $('#index_layout').layout({
+			fit : true
+		});
+		/*index_layout.layout('collapse', 'east');*/
+
+		index_tabs = $('#index_tabs').tabs({
+			fit : true,
+			border : false,
+			onContextMenu : function(e, title) {
+				e.preventDefault();
+				index_tabsMenu.menu('show', {
+					left : e.pageX,
+					top : e.pageY
+				}).data('tabTitle', title);
+			},
+			tools : [ {
+				iconCls : 'database_refresh',
+				handler : function() {
+					var href = index_tabs.tabs('getSelected').panel('options').href;
+					if (href) {/*说明tab是以href方式引入的目标页面*/
+						var index = index_tabs.tabs('getTabIndex', index_tabs.tabs('getSelected'));
+						index_tabs.tabs('getTab', index).panel('refresh');
+					} else {/*说明tab是以content方式引入的目标页面*/
+						var panel = index_tabs.tabs('getSelected').panel('panel');
+						var frame = panel.find('iframe');
+						try {
+							if (frame.length > 0) {
+								for ( var i = 0; i < frame.length; i++) {
+									frame[i].contentWindow.document.write('');
+									frame[i].contentWindow.close();
+									frame[i].src = frame[i].src;
+								}
+								if (navigator.userAgent.indexOf("MSIE") > 0) {// IE特有回收内存方法
+									try {
+										CollectGarbage();
+									} catch (e) {
+									}
+								}
+							}
+						} catch (e) {
+						}
+					}
+				}
+			}, {
+				iconCls : 'delete',
+				handler : function() {
+					var index = index_tabs.tabs('getTabIndex', index_tabs.tabs('getSelected'));
+					var tab = index_tabs.tabs('getTab', index);
+					if (tab.panel('options').closable) {
+						index_tabs.tabs('close', index);
+					} else {
+						$.messager.alert('提示', '[' + tab.panel('options').title + ']不可以被关闭！', 'error');
+					}
+				}
+			} ]
+		});
+
+		index_tabsMenu = $('#index_tabsMenu').menu({
+			onClick : function(item) {
+				var curTabTitle = $(this).data('tabTitle');
+				var type = $(item.target).attr('title');
+
+				if (type === 'refresh') {
+					index_tabs.tabs('getTab', curTabTitle).panel('refresh');
+					return;
+				}
+
+				if (type === 'close') {
+					var t = index_tabs.tabs('getTab', curTabTitle);
+					if (t.panel('options').closable) {
+						index_tabs.tabs('close', curTabTitle);
+					}
+					return;
+				}
+
+				var allTabs = index_tabs.tabs('tabs');
+				var closeTabsTitle = [];
+
+				$.each(allTabs, function() {
+					var opt = $(this).panel('options');
+					if (opt.closable && opt.title != curTabTitle && type === 'closeOther') {
+						closeTabsTitle.push(opt.title);
+					} else if (opt.closable && type === 'closeAll') {
+						closeTabsTitle.push(opt.title);
+					}
+				});
+
+				for ( var i = 0; i < closeTabsTitle.length; i++) {
+					index_tabs.tabs('close', closeTabsTitle[i]);
+				}
+			}
+		});
+	});
+</script>
+</head>
+<body class="easyui-layout">
+<div region="north" border="true" class="rtitle">
+<table class="rtitleText" border="0" width="100%">
+	<tr>
+		<td align="left" style="padding-left: 10px; font-size: 12px;font-weight: normal;">
+		欢迎您&nbsp;&nbsp;<span class="icon-user"
+			style="height: 16px; padding-left: 16px; vertical-align: middle; margin-top: -2px;font-weight: bold;">
+		<label id="l_username"></label>
+		</span><!--  &nbsp;，当前登录IP：<label id="l_ip_address">--></label>&nbsp;，上次登录时间:<label id="l_last_login"></label>
+		</td>
+		<td align="right" style="padding-right: 20px; font-size: 12px;">
+
+		<a href="manage-login.html" name="tbtn" style="color: rgb(255, 255, 255);">登录</a> 
+		
+		<a
+			href="javascript:toModifyPwd(); " name="tbtn" style="color: rgb(255, 255, 255);">修改密码</a> <a
+			
+			href="javascript:toLogout();" name="tbtn" style="color: rgb(255, 255, 255);">退出</a></td>
+	</tr>
+</table>
+</div>
+
+<div region="west" title="功能菜单" split="true" border="true"
+	style="width: 200px;">
+ <ul id="menu_tree" url="userMenuTree.do"></ul>
+</ul>
+</div>
+
+<!--  <div data-options="region:'west',href:'${pageContext.request.contextPath}/layout/west.jsp'"></div>-->
+
+<div region="center" border="true" style="overflow: hidden;margin-right: 5px;" id="centerDiv">
+
+	<div id="index_tabs" style="overflow: hidden;">
+	   <div title="首页" data-options="border:false" style="overflow: hidden;">
+	     <iframe id="mainFrame" scrolling="auto" frameborder="0" src="" onload="$('#centerDiv').unmask();" style="width: 100%; height: 98%"></iframe>
+	   </div>
+	</div> 
+</div>
+
+
+<div id="index_tabsMenu" style="width: 120px; display: none;">
+		<div title="refresh" data-options="iconCls:'transmit'">刷新</div>
+		<div class="menu-sep"></div>
+		<div title="close" data-options="iconCls:'delete'">关闭</div>
+		<div title="closeOther" data-options="iconCls:'delete'">关闭其他</div>
+		<div title="closeAll" data-options="iconCls:'delete'">关闭所有</div>
+</div>
+
+
+<div id="dd_modify_pwd" title="密码修改" style="width: 380px; padding:10px;"
+	icon="icon-user">
+	<div style="padding-left: 40px">
+<form id="modifyPwdForm" method="post"> 
+<table >
+	<tr>
+		<td>原密码:</td>
+		<td><input type="password" name="password" required="true" class="easyui-validatebox" validType="length[1,32]"></td>
+	</tr>
+	<tr>
+		<td>新密码:</td>
+		<td><input type="password" name="password1" required="true" class="easyui-validatebox" validType="length[1,32]"></td>
+	</tr>
+	<tr>
+		<td>确认密码:</td>
+		<td><input type="password" name="password2" required="true" class="easyui-validatebox" validType="length[1,32]"></td>
+	</tr>
+</table>
+</form>
+</div>
+</div>
+<div style="text-align: center;width: 100%;padding: 2px;" region="south" class="rtitle">
+    <span>Copyright © HL  2012-2015  Author:laoHu</span>
+</div>
+</body>
+</html>

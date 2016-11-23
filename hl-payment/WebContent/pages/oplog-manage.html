@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="keywords" content="mm,ctfuture">
+		<meta name="description" content="消息发送管理系统">
+		<title>操作日志查询</title>
+		<style type="text/css">
+body {
+	
+}
+
+#new-record-form input[type="text"],#edit-record-form input[type="text"],#view-record-form input[type="text"]
+	{
+	font-size: 12px;
+	width: 320px;
+	height: 16px;
+}
+textarea{
+   width: 320px;
+}
+</style>
+		<link href="../res/share.css" type="text/css" rel="stylesheet" />
+		<script src="../jquery-easyui-1.4.4/jquery.min.js" type="text/javascript"></script>
+		<script src="../jquery-easyui-1.4.4/jquery.easyui.min.js" type="text/javascript"></script>
+		<script src="../jquery-easyui-1.4.4/locale/easyui-lang-zh_CN.js"
+			type="text/javascript"></script>
+		<script src="../res/common.js" type="text/javascript"></script>
+		<script src="oplog-manage.js"  type="text/javascript"></script>
+	</head>
+	<body class="easyui-layout">
+		<div region="center" border="false" style="padding: 10px;">
+		<table id="datagrid" toolbar="#toolbar"></table>
+		</div>
+
+		<div id="toolbar">
+			<table width="100%">
+				<tr>
+					<td align="left" valign="top">
+						<div>
+							<a href="#" class="easyui-linkbutton" iconCls="icon-view"
+								plain="true" onclick="javascript:view();">查看</a>
+						</div>
+					</td>
+					<td align="left" valign="top">
+						<form method="post" id="searchForm">
+							日期：<input id="jie" type="text" name="opTime" readonly="readonly" class="easyui-datebox" > 
+							用户：<input type="text" name="userId"> 
+							IP：<input type="text"name="srcIp"> 
+							功能代码：
+							<input type="text"name="funcCode"> 
+							<a href="#" class="easyui-linkbutton"
+							iconCls="icon-search" plain="false"
+							onclick="javascript:query()">查找</a>
+						</form>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div style="display: none;">
+			<div id="view-record-dialog" title="查看" style="padding:10px;padding-left: 20px;padding-right: 20px;">
+				<form id="view-record-form" method="post">
+				   <table >
+					<tr>
+						<td>用户:</td>
+						<td><input type="text" name="userId"  readonly="readonly" class="input-readonly"></td>
+					</tr>
+					<tr>
+						<td>来源IP:</td>
+						<td><input type="text" name="srcIp"  readonly="readonly" class="input-readonly"></td>
+					</tr>
+					<tr>
+						<td>客户端:</td>
+						<td><input type="text" name="clientDesc"  readonly="readonly" class="input-readonly"></td>
+					</tr>
+					<tr>
+						<td>操作时间:</td>
+						<td><input type="text" name="opTime"   readonly="readonly" class="input-readonly"></td>
+					</tr>
+					<tr>
+						<td>操作描述:</td>
+						<td><textarea rows="2" cols="32" name="opDesc" class="input-readonly"></textarea></td>
+					</tr>
+					<tr>
+						<td>功能代码:</td>
+						<td><input type="text" name="funcCode"   readonly="readonly" class="input-readonly"></td>
+					</tr>
+					<tr>
+						<td>涉及数据库表:</td>
+						<td><input type="text" name="refTable"   readonly="readonly" class="input-readonly"></td>
+					</tr>
+						<tr>
+						<td>原来值:</td>
+						<td>
+						  <textarea rows="2" cols="32" name="oldValue" class="input-readonly"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>新值:</td>
+						<td><textarea rows="2" cols="32" name="newValue" class="input-readonly"></textarea></td>
+					</tr>
+					<tr>
+						<td>备注:</td>
+						<td><textarea rows="2" cols="32" name="remark" class="input-readonly"></textarea></td>
+					</tr>
+					</table>
+				
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

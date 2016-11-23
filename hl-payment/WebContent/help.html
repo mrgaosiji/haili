@@ -1,0 +1,661 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+            <title>燃气缴费用户的缴费流程 - 服务大厅 - 海力燃气</title>
+                    <meta name="keywords"
+                  content="燃气充值说明"/>
+                <meta name="description" content="燃气充值说明"/>
+
+<link rel="shortcut icon" href="/hl-payment/res/images/favicon.ico"  />
+<link rel="stylesheet" href="/hl-payment/res/assets/bootstrap/css/bootstrap.min.css">
+<script type="text/javascript" src="/hl-payment/jquery-easyui-1.4.4/jquery.min.js"></script>
+<script src="/hl-payment/res/assets/bootstrap/js/bootstrap.min.js"></script>
+<link type="text/css" media="screen" charset="utf-8" rel="stylesheet"
+          href="/hl-payment/res/css/help-crumb.css"/>
+
+
+<!-- uitpl:/component/trackerTime.vm -->
+    <!-- CMS:全站公共 cms/tracker/iconfont.vm开始:tracker/iconfont.vm --><style>
+
+.iconfont {
+    font-family:"rei";
+    font-style: normal;
+    font-weight: normal;
+    cursor: default;
+    -webkit-font-smoothing: antialiased;
+}
+ ul.nav-tabs{
+        width: 140px;
+        margin-top: 20px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    }
+    ul.nav-tabs li{
+        margin: 0;
+        border-top: 1px solid #ddd;
+    }
+    ul.nav-tabs li:first-child{
+        border-top: none;
+    }
+    ul.nav-tabs li a{
+        margin: 0;
+        padding: 8px 16px;
+        border-radius: 0;
+    }
+    ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover{
+        color: #fff;
+        background: #0088cc;
+        border: 1px solid #0088cc;
+    }
+    ul.nav-tabs li:first-child a{
+        border-radius: 4px 4px 0 0;
+    }
+    ul.nav-tabs li:last-child a{
+        border-radius: 0 0 4px 4px;
+    }
+    ul.nav-tabs.affix{
+        
+    }
+
+
+
+</style>
+<!-- CMS:全站公共 cms/tracker/iconfont.vm结束:tracker/iconfont.vm -->
+<script type="text/javascript">
+  window._to = { start: new Date() };
+</script>
+
+<!-- CMS:全站公共 cms/tracker/monitor.vm开始:tracker/monitor.vm --><!-- FD:106:alipay/tracker/sai_seer.vm:START --><script type="text/javascript">
+
+!function(e){function n(o){if(r[o])return r[o].exports;var i=r[o]={exports:{},id:o,loaded:!1};return e[o].call(i.exports,i,i.exports,n),i.loaded=!0,i.exports}var r={};return n.m=e,n.c=r,n.p="",n(0)}({0:function(e,n,r){e.exports=r(5)},5:function(e,n){function r(e){var n=String(e).match(l);return n?n[0]:"global"}function o(e){for(var n=[],o=0;e.arguments&&e.arguments.callee&&e.arguments.callee.caller&&(e=e.arguments.callee.caller,n.push("at "+r(e)),e.caller!==e)&&!(o++>c););return n.join("\n")}function i(e,n,r,i,t,a,u){!u&&arguments.callee.caller&&(u=o(arguments.callee.caller));var c={profile:s,type:e,msg:n||"",file:r||"",line:i||0,col:t||0,num:a||"",stack:u||"",lang:navigator.language||navigator.browserLanguage||"",lost:b.join(",")},l=r+":"+i+":"+n;return p.hasOwnProperty(l)||(c.uv=1,p[l]=!0),Sai.log(c)}var t=window;if(t.Sai)e.exports={};else{var a=t.Sai={};a._DATAS=[];var u=a._EVENTS=[];a.on=function(e,n){u.push([e,n])},a.off=function(){};var s="log";a.log=function(e,n){if(e&&!(arguments.length>=3)){var r;return"[object Object]"===Object.prototype.toString.call(e)?(r=e,r.profile=n||r.profile||s):r={profile:n||s,seed:e},a._DATAS.push(r),r}};var s="jserror",c=20,l=/^\s*function\b[^\)]+\)/,b=[],f={};a.lost=function(e){return f.hasOwnProperty(e)?void 0:(f[e]=!0,b.push(e),b)};var p={};a.error=function(e){return e instanceof Error?i("catched",e.message||e.description,e.filename||e.fileName||e.sourceURL,e.lineno||e.lineNumber||e.line,e.colno||e.columnNumber,e.number,e.stack||e.stacktrace):void 0},t.onerror=function(e,n,r,o){return i("global",e,n,r,o),!1}}}});
+
+</script><!-- FD:106:alipay/tracker/sai_seer.vm:END --><!-- CMS:全站公共 cms/tracker/monitor.vm结束:tracker/monitor.vm -->
+<!-- CMS:全站公共 cms/tracker/seajs.vm开始:tracker/seajs.vm -->	
+
+<!-- monitor 防错代码 -->
+<script>
+(function(win){
+  if(!win.monitor){win.monitor = {};}
+
+  var METHODS = ["lost", "log", "error", "on", "off"];
+
+  for(var i=0,method,l=METHODS.length; i<l; i++){
+    method = METHODS[i];
+    if("function" !== typeof win.monitor[method]){
+      win.monitor[method] = function(){};
+    }
+  }
+})(window);
+</script>
+
+
+
+
+
+<script type="text/javascript">
+if (!window._to) {
+  window._to = { start: new Date() };
+}
+</script>
+
+<script>
+  window.Tracker && Tracker.start && Tracker.start();
+</script>
+
+
+<!-- FD:106:alipay/tracker/tracker_time.vm:784:tracker_time.schema:tracker_time-tracker功能:END -->
+<!-- FD:106:alipay/tracker/tracker_time.vm:END -->
+   <link charset="utf-8" rel="stylesheet" href="/hl-payment/res/css/cshall.css" media="all" />
+    
+                
+
+    <link media="all" rel="stylesheet" href='/hl-payment/res/css/alice.style.account-1.css' type="text/css"/>
+       
+    
+
+    <script type="text/javascript" charset="utf-8">
+        AralePreload = [];
+    </script>
+
+  
+
+    <meta name="ABTest" content=""/>
+    <script type="text/vbscript">
+    Function str2asc(strstr)
+    str2asc = hex(asc(strstr))
+    End Function
+    Function asc2str(ascasc)
+    asc2str = chr(ascasc)
+    End Function
+    </script>
+    <style type="text/css">
+    
+    </style>
+        <style type="text/css">
+      #searchBar input{ margin-left: 0; }
+    </style>
+    <style>
+        body {background-color:#EDEDEF;}
+        #ServerNum {color:#EDEDEF}
+        #container {background-color:white;border:1px solid #ddd;width: 990px; padding:20px 0}
+        #content {border-top:none;margin-top:20px}
+        #content .sidebar {position:relative;margin:0;margin-bottom: -10000px; padding-bottom: 10000px; border-right: 1px solid #ececec;width:199px;overflow:hidden;}
+        #content .main {width:790px;}
+        #help-question-cate dt {font-size:14px; font-size:normal}
+        #help-question-cate dl {margin-bottom:15px;}
+        #help-menu-content .ui-switchable-active {background: #F9F9F9}
+        #help-menu #qMenu>li {background: #F9F9F9; border-bottom:1px solid #ededed; border-top:1px solid white;color:#777;}
+        #help-menu #qMenu>li:first-child {border-top:none}
+        #help-menu #qMenu>li .iconfont {margin-left:-10px;margin-right:5px;}
+        #help-menu #qMenu>li.emptied .ui-switchable-active {border-bottom:none}
+        #help-menu #qMenu>li.emptied .qMenu2 {display:none}
+        #help-menu #qMenu>li .ui-switchable-active {border-bottom:2px solid #CAC9C9}
+        #help-menu #qMenu>li .ui-switchable-active .icon-closed{display:none}
+        #help-menu #qMenu>li .ui-switchable-active .icon-opened{display:inline-block;background-color:#777;width:10px;height:3px;margin: 0 5px 3px -10px;}
+        #help-menu #qMenu .qMenu2 {background:#E7E7E7}
+        #help-menu #qMenu .qMenu2 li {background:none;border-top: 1px solid #dbdbdb;text-indent:32px;width:160px;margin-left:19px;position:relative;padding:2px 0}
+        #help-menu #qMenu .qMenu2 li:first-child {border-top: none;}
+        #help-menu .qMenu2 li:after {content:"";position:absolute;display:block;left: 20px; top: 9px; border-style: solid; border-color: transparent transparent transparent #777; border-width: 3px;}
+        .mod {border:none;border-top:1px solid #ddd;}
+        .mod-title {background:none;background-color:#777;position:absolute;width: 189px; left: -1px; top:0px;}
+        .mod-title h2 {color:white}
+        .mod-content {padding-left: 20px;}
+        .mode-content-np {margin-top: 32px;}
+        #searchBar {padding-left: 20px !important;}
+        #backTop { margin-left: 990px; }
+        .main .more-search {margin-left:10px;}
+        #container {overflow:hidden;}
+    </style>
+        <style>
+        .global-header a.cshall-homelink {font-size:30px;color:#565656;margin-left:0;font-family:"微软雅黑";font-weight:normal}
+        .global-header a.cshall-homelink:hover {text-decoration:none}
+        .global-header .global-title {border-color:#565656;line-height:30px;height:30px;margin-top:5px;border-width:2px;font-size:18px}
+        .global-common .global-nav-nosub {border-bottom:none}
+    </style>
+</head>
+<!--[if lt IE 7]>
+<body class="ie6"><![endif]--><!--[if IE 7]>
+<body class="ie7"><![endif]--><!--[if IE 8]>
+<body class="ie8"><![endif]--><!--[if !IE]><!-->
+<body data-spy="scroll" data-target="#myScrollspy"><!--<![endif]-->
+<!-- CMS:cshall cms/pc/topNotice.vm开始:pc/topNotice.vm --><!-- CMS:cshall cms/pc/topNotice.vm结束:pc/topNotice.vm --><!-- CMS:个人版全站head开始:personal/personalpublic/pa_head_notice.vm --><style type="text/css">
+.aside-freeze a{
+color: #07f;
+}
+.channel-security .current .nav-b,.channel-security .current .nav-b:hover{
+   background-position:0 -203px;
+}
+#container #nav, #container #nav .nav-container{overflow:hidden;}
+
+.hl-class{
+display: block;
+    height: 60px;
+    width: 85px;
+    background: url(res/images/hl-logo.png) no-repeat;
+}
+
+</style>
+<!-- CMS:个人版全站head结束:personal/personalpublic/pa_head_notice.vm -->
+
+
+
+
+
+
+
+<!-- CMS:全站公共 cms/nav/navSwitch.vm开始:alipay/nav/navSwitch.vm -->
+<script>
+MSGSWITCH = true;
+</script>
+
+<script>
+MERCHANT_SWITCH = 'true';
+</script>
+
+<div id="J-global-notice-container" class="global-notice-container" style="position: relative; z-index: 999; background: #ff6600;"></div>
+
+
+<div class="global-reset global-common" >
+  <!-- 这里填写导航的 DOM 结构，具体结构查看示例 -->
+  <div class="global-header fn-clear global-nav-nosub" style="height:75px">
+    <div class="global-header-content">
+    
+      <div class="hl-class" style="float:left;display:inline"></div>
+      <div class="global-title" style="float:left;font-size:25px">服务大厅</div>
+    
+    </div>
+  </div>
+</div>
+
+<div id="container" class="ui-container">    <!-- CMS:帮助中心/个人版/搜索关键字开始:lab/searchKey.vm --><script  language="javascript" type="text/javascript">    
+var SEARCHKEY = "输入问题关键字，如:"+"余额宝";
+</script>
+ <!-- CMS:帮助中心/个人版/搜索关键字结束:lab/searchKey.vm -->
+<style type="text/css">
+
+    #searchBar {
+        height: 40px;
+        padding: 0px;
+        margin: 0px;
+        background: transparent;
+        border: 0;
+		z-index: 10;
+    }
+    /*禁止IE11下清除按钮*/
+    input::-ms-clear{display : none; } 
+    #searchBar input{
+        color: #b1b1b1;
+    }
+    #searchBar.fm-focus input.i-text{
+        outline: 0;
+        color: #000;
+    }
+    #searchBar .searchBar-cnt{
+        height: 36px;
+        border: 2px solid #B2B2B2;
+        display: inline-block;
+        width: 500px;
+        position: relative;
+    }
+    #searchBar #topInputSearch{
+        border: 0px;
+        width: 475px;
+        height: 25px;
+        font-size: 16px;
+        position: absolute;
+        left: 10px;
+        top: 4px;
+        padding: 0 5px 0 0;
+    }
+    #searchBar #topInputSearch:focus { outline: none; }
+    #searchBar .search-icon{
+        position: absolute;
+        left: 10px;
+        top: 4px;
+        z-index: 3;
+        font-size: 23px;
+        color: #dbdbdb;
+    }
+   
+   
+   
+    /*搜索按钮*/
+    #searchBar .searchBtn{
+        vertical-align: top;
+        padding: 0 36px;
+        line-height: 38px;
+        height: 38px;
+        color: #5e5e5e;
+        border:1px solid #B2B2B2;
+        background: #F4F4F4;
+    }
+    #searchBar .searchBtn .ui-button-text{
+        padding: 0;
+        font-size: 20px;
+        font-weight: normal;
+        font-family: "微软雅黑";
+    }
+    /*searchBar*/
+
+    .searchBar-cnt{
+        background-color: #ffffff;
+    }
+
+    /*searchBar end*/
+
+    #x_clickzone{
+        width: 20px;
+        height: 25px;
+        position: absolute;
+        top: 10px;
+        left: 466px;
+        cursor: pointer;
+    }
+    @media screen and (-webkit-min-device-pixel-ratio:0)
+    {
+        
+        #searchBar input.inputActived{
+            line-height:13px;
+        }
+        #searchBar input.inputHoverd{
+            line-height:13px;
+        }
+    }
+
+    .promotion-cnt{
+        font-size: 14px;
+        height: 45px;
+        line-height: 45px;
+        float: right;
+    }
+    .promotion-cnt a,.promotion-cnt a:link{
+        color: #505050;
+    }
+    .promotion-cnt a:hover{
+        color: #e66e1e;
+        text-decoration: none;
+    }
+</style>
+
+
+
+<style>
+        .ie8 .more-search .btn {
+        vertical-align: 2px;
+    }
+</style>
+
+
+
+<!-- /导航 -->
+<div id="content" class="fn-clear">
+    <div id="backTop" class="back_top fn-hide"></div>
+    <!-- 常见问题分类 -->
+    <!-- sidebar start-->
+
+			<div class="sidebar" style="float: left">
+				<div class="col-xs-3" id="myScrollspy">
+					<ul class="nav nav-tabs nav-stacked" data-spy="affix">
+						<li class="active"><a href="#section-1">缴费登入</a></li>
+						<li><a href="#section-2">缴费金额充值</a></li>
+						<li><a href="#section-3">账户和欠费信息</a></li>
+						<li><a href="#section-4">历史缴费信息</a></li>
+						<li><a href="#section-5">充值金额填写确认</a></li>
+						<li><a href="#section-6">充缴规则</a></li>
+						<li><a href="#section-7">有效性验证</a></li>
+						<li><a href="#section-8">收银台</a></li>
+						<li><a href="#section-9">支付等待</a></li>
+						<li><a href="#section-10">缴费历史记录确认</a></li>
+						<li><a href="#section-11">银联支付</a></li>
+						<li><a href="#section-12">适配浏览器说明</a></li>
+					</ul>
+				</div>
+			</div>
+			<!--sidebar ending-->
+			<div class="main" style="float:left;width:780px;">
+
+				<!-- 面包屑 -->
+				
+				<div class="help-crumb" style="width: 100%">
+					<a href="#"><font style="font-weight: bold">网上缴纳燃气说明</font></a>
+				
+				</div>
+				<!-- /面包屑 -->
+				<div class="help-detail">
+					<h2 class="detail-title">燃气缴费用户的Portal缴费流程说明<div><br><br></div><img src="res/images/liucheng.png" style="width: 90%" /></h2>
+					
+					<div class="detail-content">
+					
+						<div class="csp-ck-article">
+							<div class="csp-ck-plugin-slide">
+							<div class="col-xs-9" style="width:100%">
+						       <div id="section-1" class="slide ck-plugin-slide-item">
+									<div class="ck-plugin-slide-title">【缴费登录窗口】</div>
+									<div class="ck-plugin-slide-content">
+										<div class="tmp1">
+											<img src="res/images/liucheng1.png" style="width: 100%" />
+										</div>
+									</div>
+								</div>
+								<br>
+								<div class="slide ck-plugin-slide-item">
+									<div class="ck-plugin-slide-title">
+										<p></p>
+										选择自己所在省、市、区/县，并输入正确的燃气公司客户号，按回车键Enter或者鼠标点击“缴纳燃气费”按钮，连接燃气公司，登入系统。</div>
+									<div class="ck-plugin-slide-content">
+										<div class="tmp1">
+											<img src="res/images/liucheng2.png"
+												style="border: 1px solid #9e9e9e; width: 100%" />
+										</div>
+									</div>
+								</div>
+								<br>
+								<div  class="slide ck-plugin-slide-item">
+									<div class="ck-plugin-slide-title">
+										【错误提醒】
+									</div>
+									<div class="ck-plugin-slide-content">
+									当前系统是在选定的燃气公司收费系统正常运行和通信的条件下提供在线充值服务功能，如果不能正常连接收费系统，系统会进行响应提醒。
+										<img src="res/images/error_notice.png"
+											style="border: 1px solid #9e9e9e;width:100%" />
+									</div>
+								</div>
+								
+								<br>
+									<div id="section-2" class="slide ck-plugin-slide-item">
+										<div class="ck-plugin-slide-title">【缴费金额充值】</div>
+										<div class="ck-plugin-slide-content">
+											<div class="tmp2">
+												<img src="res/images/pay_abstract.png"
+													style="border: 1px solid #9e9e9e; width: 100%" />
+											</div>
+										</div>
+									</div>
+									
+									<br>
+									<div id="section-3" class="slide ck-plugin-slide-item">
+										<div class="ck-plugin-slide-title">【用户和欠费信息】</div>
+										<div class="ck-plugin-slide-content">
+										用户信息及欠费明细显示:用户信息显示当前用户基础信息，包括所属燃气公司、账户名称及账户余额；欠费信息是在当前账户既有欠费条件下显示欠费信息，包括欠费总额及各月欠费明细。
+											<div class="tmp2">
+												<img src="res/images/abstract_detail.png"
+													style="border: 1px solid #9e9e9e; width: 100%" />
+											</div>
+										</div>
+									</div>
+									
+									<br>
+									<div id="section-4" class="slide ck-plugin-slide-item">
+										<div class="ck-plugin-slide-title">【历史缴费信息明细】</div>
+										<div class="ck-plugin-slide-content">
+											<div class="tmp2">
+												<img src="res/images/history_pay.png"
+													style="border: 1px solid #9e9e9e; width: 100%" />
+											</div>
+										</div>
+									</div>
+									
+									<br>
+									<div id="section-5" class="slide ck-plugin-slide-item">
+										<div class="ck-plugin-slide-title">充值栏充值,在表格中详细显示当前账户所挂表的详细信息包括表类型和详细地址，并在充值一栏中点击选择表进行缴费充值确认。</div>
+										<div class="ck-plugin-slide-content">
+											<div class="tmp2">
+												<img src="res/images/pay_handle_meter.png"
+													style="border: 1px solid #9e9e9e; width: 100%" />
+											</div>
+										</div>
+									</div>
+									
+									<br>
+									<div id="section-6" class="slide ck-plugin-slide-item">
+										<div class="ck-plugin-slide-title">【充缴规则】</div>
+										<div class="ck-plugin-slide-content">
+											卡表充值缴费，缴费金额必须大于或者等于该表欠费金额大小;网络表缴费可以不用填写任意大于零数值，但是条件是当前用户总缴费金额必须大于等于0元;缴费数值必须是正值，系统默认可以到小数点后两位，例如可填100.0、100.1、100.01、100，错误情况系统会自动校验。
+										</div>
+									</div>
+									
+									<br>
+									<div id="section-7" class="slide ck-plugin-slide-item">
+										<div class="ck-plugin-slide-title">充值金额填充，数字金额有效性校验，必须填写规定的有效格式的金额数字，才能填写完成。另：普表缴费金额必须大于等于其所欠金额费用。</div>
+										<div class="ck-plugin-slide-content">
+											<div class="tmp2">
+												<img src="res/images/pay_value_notice.png"
+													style="border: 1px solid #9e9e9e; width: 100%" />
+											</div>
+										</div>
+									</div>
+									<br>
+									<div id="section-8" class="slide ck-plugin-slide-item">
+										<div class="ck-plugin-slide-title">【收银台】</div>
+										<div class="ck-plugin-slide-content">
+										选择付款方式进行付费，目前支持银联网银进行燃气付费
+											<div class="tmp2">
+												<img src="res/images/cashier.png"
+													style="border: 1px solid #9e9e9e; width: 100%" />
+											</div>
+										</div>
+									</div>
+									
+									
+									<br>
+									<div class="slide ck-plugin-slide-item">
+										<div class="ck-plugin-slide-title">可查看缴费详单，并确认支付</div>
+										<div class="ck-plugin-slide-content">
+											<div class="tmp2">
+												<img src="res/images/casher_confirm.png"
+													style="border: 1px solid #9e9e9e; width: 100%" />
+											</div>
+										</div>
+									</div>
+									<br>
+									<div id="section-9" class="slide ck-plugin-slide-item">
+										<div class="ck-plugin-slide-title">【支付等待】</div>
+										<div class="ck-plugin-slide-content">
+										不必要关闭该窗口，如果三方支付网关成功支付，系统会自动跳转提示支付成功
+											<div class="tmp2">
+												<img src="res/images/pay_action_refresh.png"
+													style="border: 1px solid #9e9e9e; width: 100%" />
+											</div>
+										</div>
+									</div>
+									
+									<br>
+									<div  class="slide ck-plugin-slide-item">
+										<div class="ck-plugin-slide-title">如果已经在支付网关完成支付，而系统依然停留在等待提醒窗口，用户可选择“支付遇到问题”或者”支付完成“按钮，手动选择获取支付最新情况，并提示最新燃气付费情况。</div>
+										<div class="ck-plugin-slide-content">
+											<div class="tmp2">
+												<img src="res/images/pay_refresh_question.png"
+													style="border: 1px solid #9e9e9e; width: 100%" />
+											</div>
+										</div>
+									</div>
+
+                                    <br>
+									<div  class="slide ck-plugin-slide-item">
+										<div class="ck-plugin-slide-title">用户可手动进行该缴费订单刷新状态</div>
+										<div class="ck-plugin-slide-content">
+											<div class="tmp2">
+												<img src="res/images/steps_return_refresh.png"
+													style="border: 1px solid #9e9e9e; width: 100%" />
+											</div>
+										</div>
+									</div>
+									
+									<br>
+									<div id="section-10" class="slide ck-plugin-slide-item">
+										<div class="ck-plugin-slide-title">用户最后可返回缴费窗口,登入系统,在缴费历史明细中确认最终充值金额</div>
+										<div class="ck-plugin-slide-content">
+											<div class="tmp2">
+												<img src="res/images/history_detail.png"
+													style="border: 1px solid #9e9e9e; width: 100%" />
+											</div>
+										</div>
+									</div>
+
+
+									<br>
+									<div id="section-11" class="slide ck-plugin-slide-item">
+										<div class="ck-plugin-slide-title">【银联付费】</div>
+										<div class="ck-plugin-slide-content">
+										银联网关提供多种付费方式，用户可自行选择
+											<div class="tmp2">
+												<img src="res/images/union_pay.png"
+													style="border: 1px solid #9e9e9e; width: 100%" />
+											</div>
+										</div>
+									</div>
+									
+									<br>
+									<div  class="slide ck-plugin-slide-item">
+										<div class="ck-plugin-slide-title">选择直接付款方式，输入卡号</div>
+										<div class="ck-plugin-slide-content">
+											<div class="tmp2">
+												<img src="res/images/direct_pay.png"
+													style="border: 1px solid #9e9e9e; width: 100%" />
+											</div>
+										</div>
+									</div>
+											
+								    <br>
+									<div class="slide ck-plugin-slide-item">
+										<div class="ck-plugin-slide-title">填写身份证和手机收到的验证码</div>
+										<div class="ck-plugin-slide-content">
+											<div class="tmp2">
+												<img src="res/images/bank_money.png"
+													style="border: 1px solid #9e9e9e; width: 100%" />
+											</div>
+										</div>
+									</div>
+									
+									<br>
+									<div  class="slide ck-plugin-slide-item">
+										<div class="ck-plugin-slide-title">成功支付</div>
+										<div class="ck-plugin-slide-content">
+											<div class="tmp2">
+												<img src="res/images/bank_notice_success.png"
+													style="border: 1px solid #9e9e9e; width: 100%" />
+											</div>
+										</div>
+									</div>
+									
+										<br>
+									<div  class="slide ck-plugin-slide-item">
+										<div class="ck-plugin-slide-title">燃气易支付缴费成功提示</div>
+										<div class="ck-plugin-slide-content">
+											<div class="tmp2">
+												<img src="res/images/third_success.png"
+													style="border: 1px solid #9e9e9e; width: 100%" />
+											</div>
+										</div>
+									</div>
+									<br>
+									
+									<div id="section-12" class="slide ck-plugin-slide-item">
+										<div class="ck-plugin-slide-title">【适配浏览器说明】</div>
+										<div class="ck-plugin-slide-content">
+											支付系统portal端支持用户使用大部分商业浏览器，但是版本较低的浏览器比如IE8及以下版本，系统不提供支持。提供支持的浏览器包括Chrome、QQ、Firefox、UC、360、IE11等下载地址：
+											<a>http://rj.baidu.com/soft/detail/14744.html?ald</a>
+										</div>
+									</div>
+					</div>				
+				</div>
+			</div>
+
+        </div>
+		</div>
+
+<!-- FD:106:alipay/tracker/cmsbuffer.vm:997:cmsbuffer.schema:main-CMS全站修复:END -->
+<!-- FD:106:alipay/tracker/cmsbuffer.vm:END --><!-- FD:106:alipay/tracker/tracker.vm:785:tracker.schema:tracker-性能监控及自动化埋点启动:END -->
+<!-- FD:106:alipay/tracker/tracker.vm:END -->	
+<!-- CMS:全站公共 cms/全站导航/网站改版新旧版切换开始:alipay/nav/versionSwitch.vm -->
+
+<!-- CMS:全站公共 cms/全站导航/网站改版新旧版切换结束:alipay/nav/versionSwitch.vm -->		
+
+<!-- /component/footCommon.vm -->
+
+<!-- CMS:全站公共 cms/全站导航/网站改版新旧版切换开始:alipay/nav/versionSwitch.vm -->
+
+
+<!-- CMS:全站公共 cms/全站导航/网站改版新旧版切换结束:alipay/nav/versionSwitch.vm -->
+
+<style>
+.ui-footer {margin-top: 30px; border-top: 1px solid #cccccc; height: 100px; color:#808080;}
+.ui-footer .ui-separator{font-weight: normal;}
+.ui-footer-ctn {border-top: 1px solid #ffffff;padding-top: 15px;text-align: center;}
+.ui-footer-link a {padding: 0 3px 0 2px;}
+.ui-footer-copyright,.ui-footer-phone {padding-top: 10px;}
+.ui-footer-copyright a,.ui-footer-copyright a:hover {color:#808080;}
+.server{color:#fff;}
+</style>
+
+
+
+<!-- /component/footCommon.vm -->
+</div>
+
+</html>

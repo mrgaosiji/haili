@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="keywords" content="mm,ctfuture">
+		<meta name="description" content="函数管理系统">
+		<title>资源管理</title>
+		<style type="text/css">
+body {
+	
+}
+
+#new-record-form input[type="text"],#edit-record-form input[type="text"],#view-record-form input[type="text"]
+	{
+	font-size: 12px;
+	width: 220px;
+	height: 16px;
+}
+</style>
+		<link href="../res/share.css" type="text/css" rel="stylesheet" />
+		<script src="../jquery-easyui-1.4.4/jquery.min.js" type="text/javascript"></script>
+		<script src="../jquery-easyui-1.4.4/jquery.easyui.min.js" type="text/javascript"></script>
+		<script src="../jquery-easyui-1.4.4/locale/easyui-lang-zh_CN.js"
+			type="text/javascript"></script>
+		<script src="../res/common.js" type="text/javascript"></script>
+		<script type="text/javascript" src="func-manage.js"></script>
+	</head>
+	<body class="easyui-layout">
+		<div region="center" border="false" style="padding: 10px;">
+			<table id="datagrid" toolbar="#toolbar">
+			</table>
+		</div>
+
+		<div id="toolbar">
+			<table width="100%">
+				<tr>
+					<td align="left" valign="top">
+						<div>
+							<a href="#" class="easyui-linkbutton" iconCls="icon-add"
+								plain="true" onclick="javascript:create();">新建</a>
+
+							<a href="#" class="easyui-linkbutton" iconCls="icon-edit"
+								plain="true" onclick="javascript:edit();">编辑</a>
+							<a href="#" class="easyui-linkbutton" iconCls="icon-delete"
+								plain="true" onclick="javascript:deleteIt();">删除</a>	
+	
+						</div>
+					</td>
+       <td align="right" valign="middle" style="padding-right: 6px;">
+  <form method="post" id="searchForm"><input type="text"
+   name="filter"> <a href="#" class="easyui-linkbutton"
+   iconCls="icon-search" plain="false"
+   onclick="javascript:query()">查找</a></form>
+  </td>
+				</tr>
+			</table>
+		</div>
+
+		<div style="display: none;">
+			<div id="new-record-dialog" title="新建"
+				style="padding: 10px; padding-left: 20px; padding-right: 20px;">
+				<form id="new-record-form" method="post">
+					<table>
+						
+						<tr>
+							<td>
+								名称:
+							</td>
+							<td>
+								<input type="text" name="name" class="easyui-validatebox"
+									required="true" validType="length[2,32]">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								编码(OR页面地址):
+							</td>
+							<td>
+								<input type="text" name="funcCode" class="easyui-validatebox"
+									 validType="length[0,128]">
+							</td>
+						</tr>
+                              <tr>
+       <td>
+        类型:
+       </td>
+       <td>
+           <select name="type" class="easyui-validatebox"
+         required="true">
+               <option value="1" selected="selected">菜单(在菜单栏显示)</option>
+               <option value="2">子功能(不在菜单栏显示)</option>
+         </select>
+       </td>
+      </tr><tr>
+       <td>
+        菜单样式名:
+       </td>
+       <td>
+        <input type="text" name="iconCls" class="easyui-validatebox"
+          validType="length[0,16]">
+       </td>
+      </tr>
+						<tr>
+							<td>
+								说明:
+							</td>
+							<td>
+								<input type="text" name="remark" class="easyui-validatebox"
+									validType="length[0,56]">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								排序:
+							</td>
+							<td>
+								<input type="text" name="orderNum" class="easyui-validatebox"
+									validType="regexp['^[0-9]{0,5}$','请输入5位数字']">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								PARENT:
+							</td>
+							<td>
+								 <select style="width:220px;" class="easyui-combotree" name="parentId" url="../func/funclist.do"  cascadeCheck="false" ></select>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+
+			<div id="edit-record-dialog" title="编辑"
+				style="padding: 10px; padding-left: 20px; padding-right: 20px;">
+				<form id="edit-record-form" method="post">
+					<input type="hidden" name="id">
+					<table>
+						<tr>
+							<td>
+								名称:
+							</td>
+							<td>
+								<input type="text" name="name" class="easyui-validatebox"
+									 validType="length[0,32]">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								编码:
+							</td>
+							<td>
+								<input type="text" name="funcCode" class="easyui-validatebox"
+									 validType="length[2,128]">
+							</td>
+						</tr>
+                                    <tr>
+       <td>
+        类型:
+       </td>
+       <td>
+           <select name="type" class="easyui-validatebox"
+         required="true">
+               <option value="1" selected="selected">菜单(在菜单栏显示)</option>
+               <option value="2">子功能(不在菜单栏显示)</option>
+         </select>
+       </td>
+      </tr><tr>
+       <td>
+        菜单样式名:
+       </td>
+       <td>
+        <input type="text" name="iconCls" class="easyui-validatebox"
+          validType="length[0,16]">
+       </td>
+      </tr>
+						<tr>
+							<td>
+								说明:
+							</td>
+							<td>
+								<input type="text" name="remark" class="easyui-validatebox"
+									validType="length[0,56]">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								排序:
+							</td>
+							<td>
+								<input type="text" name="orderNum" class="easyui-validatebox"
+									validType="length[0,5]">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								PARENT:
+							</td>
+							<td>
+								 <select style="width:220px;" class="easyui-combotree" name="parentId" url="../func/funclist.do"  cascadeCheck="false" ></select>
+							</td>
+						</tr>
+					</table>
+
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

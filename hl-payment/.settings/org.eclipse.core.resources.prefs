@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+encoding//WebContent/pages/payment-process/pay-casher-third.jsp=UTF-8
+encoding//WebContent/pages/payment-process/pay-check-first.jsp=UTF-8
+encoding//WebContent/pages/payment-process/pay-failed.jsp=UTF-8
+encoding//WebContent/pages/payment-process/pay-infoconfirm-second.jsp=UTF-8
+encoding//WebContent/pages/payment-process/pay-success.jsp=UTF-8
+encoding//WebContent/pages/testimport.jsp=UTF-8
+encoding//WebContent/res/pay.css=UTF-8
+encoding//WebContent/res/web.css=UTF-8
+encoding//config/jdbc.properties=UTF-8
+encoding//src/com/hl/web/controller/FuncManage.java=UTF-8
+encoding/<project>=UTF-8

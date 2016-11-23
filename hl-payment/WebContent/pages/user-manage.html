@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="mm,ctfuture">
+<meta name="description" content="消息发送管理系统">
+<title>用户管理</title>
+<style type="text/css">
+body {
+	
+}
+#new-record-form input[type="text"],#edit-record-form input[type="text"],#view-record-form input[type="text"]{
+   font-size: 12px;
+   width: 220px;
+   height: 16px;
+}
+
+</style>
+<link href="../res/share.css" type="text/css" rel="stylesheet" />
+<script src="../easyui/jquery.min.js" type="text/javascript"></script>
+<script src="../easyui/jquery.easyui.min.js" type="text/javascript"></script>
+<script src="../easyui/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+<script src="../res/common.js" type="text/javascript"></script>
+<script type="text/javascript" src="user-manage.js"></script>
+</head>
+<body class="easyui-layout">
+<div region="center" border="false" style="padding: 10px;">
+<table id="datagrid" toolbar="#toolbar" >
+</table>
+</div>
+
+<div id="toolbar">
+<table width="100%">
+	<tr>
+		<td align="left" valign="top">
+		<div>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-add"
+			plain="true" onclick="javascript:create();">新建</a>
+			
+		<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true"
+			onclick="javascript:edit();">编辑</a>
+			
+			<a href="#" class="easyui-linkbutton" iconCls="icon-edit" id="enableUserBtn" plain="true"
+			onclick="javascript:enableUser();">启用</a>
+			
+			<a href="#" class="easyui-linkbutton" iconCls="icon-edit" id="disableUserBtn" plain="true"
+			onclick="javascript:disableUser();">停用</a>
+			
+			<a href="#"
+			class="easyui-linkbutton" iconCls="icon-view" plain="true"
+			onclick="javascript:view();">查看</a>
+			
+			</div>
+		</td>
+		<td align="right" valign="middle" style="padding-right: 6px;">
+		<form method="post" id="searchForm"><input type="text"
+			name="userName"> <a href="#" class="easyui-linkbutton"
+			iconCls="icon-search" plain="false"
+			onclick="javascript:query()">查找</a></form>
+		</td>
+	</tr>
+</table>
+</div>
+
+<div style="display: none;">
+
+<div id="new-record-dialog" title="新建" style="padding:10px;padding-left: 20px;padding-right: 20px;">
+<form id="new-record-form" method="post">
+   <table >
+	<tr>
+		<td>用户名:</td>
+		<td><input type="text" name="userName" class="easyui-validatebox" required="true" validType="length[2,32]"></td>
+	</tr>
+	<tr>
+		<td>真实姓名:</td>
+		<td><input type="text" name="fullName"  class="easyui-validatebox" validType="length[1,32]"></td>
+	</tr>
+	<tr>
+		<td>性别:</td>
+		<td>
+		  <select name="gender" style="width:220px;">
+		      <option value="1">男</option>
+		      <option value="2">女</option>
+		      <option value="3" selected="selected">保密</option>
+		  </select>
+		</td>
+	</tr>
+	<tr>
+		<td>手机号:</td>
+		<td><input type="text" name="cellphone"  class="easyui-validatebox" validType="length[0,21]"></td>
+	</tr>
+	<tr>
+		<td>邮箱:</td>
+		<td><input type="text" name="email"  class="easyui-validatebox" validType="email"></td>
+	</tr>
+	<tr>
+		<td>住址:</td>
+		<td><input type="text" name="address"  class="easyui-validatebox" validType="length[0,64]"></td>
+	</tr>
+	<tr>
+		<td>备注:</td>
+		<td><input type="text" name="note"  class="easyui-validatebox" validType="length[0,128]"></td>
+	</tr>
+		<tr>
+		<td>角色:</td>
+		<td>
+		  <input class="easyui-combobox" 
+			name="roles"
+			editable="false"
+			style="width:222px;"
+			url="../user/listAllRoles.do" 
+			valueField="id" 
+			textField="name" 
+			multiple="true" 
+			panelHeight="auto">
+		</td>
+	</tr>
+	</table>
+
+</form>
+</div>
+
+
+<div id="edit-record-dialog" title="编辑" style="padding:10px;padding-left: 20px;padding-right: 20px;">
+<form id="edit-record-form" method="post">
+   <table >
+	<tr>
+		<td>用户名:</td>
+		<td><input type="text" name="userName" class="easyui-validatebox input-readonly" readonly="readonly" required="true" validType="length[2,32]"></td>
+	</tr>
+	<tr>
+		<td>真实姓名:</td>
+		<td><input type="text" name="fullName"  class="easyui-validatebox" validType="length[1,32]"></td>
+	</tr>
+	<tr>
+		<td>性别:</td>
+		<td>
+		  <select name="gender" style="width:220px;">
+		      <option value="1">男</option>
+		      <option value="2">女</option>
+		      <option value="3" selected="selected">保密</option>
+		  </select>
+		</td>
+	</tr>
+	<tr>
+		<td>手机号:</td>
+		<td><input type="text" name="cellphone"  class="easyui-validatebox" validType="length[0,21]"></td>
+	</tr>
+	<tr>
+		<td>邮箱:</td>
+		<td><input type="text" name="email"  class="easyui-validatebox" validType="email"></td>
+	</tr>
+	<tr>
+		<td>住址:</td>
+		<td><input type="text" name="address"  class="easyui-validatebox" validType="length[0,64]"></td>
+	</tr>
+	<tr>
+		<td>备注:</td>
+		<td><input type="text" name="note"  class="easyui-validatebox" validType="length[0,128]"></td>
+	</tr>
+		<tr>
+		<td>角色:</td>
+		<td>
+		  <input class="easyui-combobox" 
+			name="roles"
+			editable="false"
+			style="width:222px;"
+			url="../user/listAllRoles.do" 
+			valueField="id" 
+			textField="name" 
+			multiple="true" 
+			panelHeight="auto">
+		</td>
+	</tr>
+	</table>
+
+</form>
+</div>
+
+<div id="view-record-dialog" title="查看" style="padding:10px;padding-left: 20px;padding-right: 20px;">
+<form id="view-record-form" method="post">
+   <table >
+	<tr>
+		<td>用户名:</td>
+		<td><input type="text" name="userName"  readonly="readonly" class="input-readonly"></td>
+	</tr>
+	<tr>
+		<td>真实姓名:</td>
+		<td><input type="text" name="fullName"  readonly="readonly" class="input-readonly"></td>
+	</tr>
+	<tr>
+		<td>性别:</td>
+		<td><input type="text" name="genderText"  readonly="readonly" class="input-readonly"></td>
+	</tr>
+	<tr>
+		<td>手机号:</td>
+		<td><input type="text" name="cellphone"   readonly="readonly" class="input-readonly"></td>
+	</tr>
+	<tr>
+		<td>邮箱:</td>
+		<td><input type="text" name="email"   readonly="readonly" class="input-readonly"></td>
+	</tr>
+	<tr>
+		<td>住址:</td>
+		<td><input type="text" name="address"   readonly="readonly" class="input-readonly"></td>
+	</tr>
+	<tr>
+		<td>备注:</td>
+		<td><input type="text" name="note"   readonly="readonly" class="input-readonly"></td>
+	</tr>
+		<tr>
+		<td>角色:</td>
+		<td>
+		  <textarea rows="2" cols="32" name="roleNames" class="input-readonly"></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td>创建时间:</td>
+		<td><input type="text" name="addTime"   readonly="readonly" class="input-readonly"></td>
+	</tr>
+	<tr>
+		<td>状态:</td>
+		<td><input type="text" name="statusText"   readonly="readonly" class="input-readonly"></td>
+	</tr>
+	</table>
+
+</form>
+</div>
+   </div>
+
+</body>
+</html>
